@@ -7,9 +7,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.navigation
 import androidx.navigation.navArgument
-import ke.droidcon.tujenge.domain.NewsArticleInfo
 import ke.droidcon.tujenge.presentation.article_page.ArticleScreen
 import ke.droidcon.tujenge.presentation.google_news_list_page.GoogleNewsListScreen
 
