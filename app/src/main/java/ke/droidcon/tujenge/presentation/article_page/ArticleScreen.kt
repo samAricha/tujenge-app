@@ -28,7 +28,7 @@ fun ArticleScreen(title: String, url: String){
     Scaffold(
         topBar = { TopAppBar(
             title = { Text(
-                "DroidConKe Tujenge News",
+                "DroidConKe23 Tujenge App",
                 color = MaterialTheme.colorScheme.primary)
                     },
             modifier = Modifier.background(Color(0xff0f9d58))

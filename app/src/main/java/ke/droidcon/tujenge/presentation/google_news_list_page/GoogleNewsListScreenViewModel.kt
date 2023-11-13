@@ -21,7 +21,7 @@ class GoogleNewsListScreenViewModel : ViewModel() {
     fun  getNewsList(){
         viewModelScope.launch {
             val apiKey = "056fe72eabe24c5dacbbc8d2a82f0d15"
-            val keyword = "all"
+            val keyword = "kenya"
 
             val call: Call<GoogleNewsApiResponse> = GoogleNewsRetrofitProvider
                 .createGoogleNewsFetchingService()

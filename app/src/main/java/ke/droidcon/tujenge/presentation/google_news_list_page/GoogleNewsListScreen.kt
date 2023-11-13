@@ -35,7 +35,7 @@ fun GoogleNewsListScreen(navController: NavController){
 
     Scaffold(
         topBar = { TopAppBar(
-            title = { Text("DroidConKe Tujenge News",
+            title = { Text("DroidConKe23 Tujenge App",
                 color = MaterialTheme.colorScheme.primary)
                 },
             modifier = Modifier.background(Color(0xff0f9d58))
