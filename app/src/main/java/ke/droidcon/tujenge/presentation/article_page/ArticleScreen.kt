@@ -1,6 +1,7 @@
 package ke.droidcon.tujenge.presentation.article_page
 
 import android.annotation.SuppressLint
+import android.icu.text.CaseMap.Title
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -13,14 +14,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.viewinterop.AndroidView
+import ke.droidcon.tujenge.domain.NewsArticleInfo
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ArticleScreen(){
+fun ArticleScreen(title: String, url: String){
     Scaffold(
         topBar = { TopAppBar(
-            title = { Text("Tujenge DroidCon News", color = Color.White)},
+            title = { Text("DroidConKe Tujenge News", color = Color.Blue)},
             modifier = Modifier.background(Color(0xff0f9d58))
         )},
         content = { MyContent() }

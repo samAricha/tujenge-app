@@ -3,6 +3,7 @@
 agp = "8.1.2"
 kotlin = "1.9.0"
 hilt = "2.44"
+serialization = "1.8.0"
 
 # Androidx libraries
 androidx-appcompat = "1.6.1"
@@ -51,3 +52,4 @@ androidx-hiltNavigationCompose = { module = "androidx.hilt:hilt-navigation-compo
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 daggerHilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "serialization" }

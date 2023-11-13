@@ -19,9 +19,8 @@ class NewsListScreenViewModel : ViewModel() {
     private val _newsState = MutableStateFlow<List<NewsItem>>(emptyList())
     val newsState: StateFlow<List<NewsItem>> = _newsState
 
-    fun  getEggCollectionList(){
+    fun  getNewsList(){
         viewModelScope.launch {
-
             try {
                 val category = "science" // Replace with the actual category name
                 val call: Call<NewsResponse> = RetrofitProvider.createNewsFetchingService().getNewsByCategory(category)

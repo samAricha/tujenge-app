@@ -10,9 +10,14 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
-import ke.droidcon.tujenge.presentation.news_list_page.NewsListScreen
+import ke.droidcon.tujenge.navigation.RootNavGraph
+import ke.droidcon.tujenge.presentation.google_news_list_page.GoogleNewsListScreen
 import ke.droidcon.tujenge.ui.theme.TujengeAppTheme
+import org.jetbrains.annotations.NotNull
+import timber.log.Timber
+
 
 
 @AndroidEntryPoint
@@ -23,20 +28,29 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        if (BuildConfig.DEBUG) {
+            Timber.plant(Timber.DebugTree())
+        } else {
+            // Release mode logging
+        }
 
+        
         setContent {
-
+            val navController = rememberNavController()
             TujengeAppTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    NewsListScreen()
+//                    NewsListScreen()
+//                    GoogleNewsListScreen()
+                    RootNavGraph(navController = navController)
+
                 }
             }
 
         }
+
     }
 }
 

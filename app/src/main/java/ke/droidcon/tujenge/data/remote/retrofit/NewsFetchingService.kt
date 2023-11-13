@@ -10,6 +10,6 @@ import retrofit2.http.Path
 interface NewsFetchingService {
 
     @GET("news?category={category_name}")
-    fun getNewsByCategory(@Path("category_name") categoryName: String): Call<NewsResponse>
+    suspend fun getNewsByCategory(@Path("category_name") categoryName: String): Call<NewsResponse>
 
 }

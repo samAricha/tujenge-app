@@ -7,8 +7,8 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 
-object RetrofitProvider {
-    private const val BASE_URL = "https://inshorts.deta.dev/"
+object GoogleNewsRetrofitProvider {
+    private const val BASE_URL = "https://newsapi.org/v2/"
 
     private fun provide(): Retrofit {
         val json = Json { ignoreUnknownKeys = true }//to ignore unknown keys
@@ -28,9 +28,8 @@ object RetrofitProvider {
             .addInterceptor(HeaderInterceptor)
             .build()
 
-
-    fun createNewsFetchingService(): NewsFetchingService {
-        return provide().create(NewsFetchingService::class.java)
+    fun createGoogleNewsFetchingService(): GoogleNewsFetchingService {
+        return provide().create(GoogleNewsFetchingService::class.java)
     }
 
 
