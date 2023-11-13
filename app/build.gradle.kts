@@ -90,6 +90,9 @@ dependencies {
     implementation("com.jakewharton.timber:timber:5.0.1")
     // Navigation Compose
     implementation("androidx.navigation:navigation-compose:2.7.5")
+    //coil
+    implementation("io.coil-kt:coil-compose:2.2.2")
+
 
 
 
