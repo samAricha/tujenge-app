@@ -18,10 +18,22 @@ class GoogleNewsListScreenViewModel : ViewModel() {
     private val _newsState = MutableStateFlow<List<NewsArticle>>(emptyList())
     val newsState: StateFlow<List<NewsArticle>> = _newsState
 
-    fun  getNewsList(){
+    private val _isSyncing = MutableStateFlow(false)
+    val isSyncing: StateFlow<Boolean> = _isSyncing
+
+    private val searchQuery = MutableStateFlow("")
+
+    fun onSearchQueryChanged(query: String) {
+        searchQuery.value = query
+        getNewsList(keyword = searchQuery.value)
+    }
+
+
+    fun  getNewsList(keyword: String = "kenya"){
+        _isSyncing.value = true
         viewModelScope.launch {
+
             val apiKey = "056fe72eabe24c5dacbbc8d2a82f0d15"
-            val keyword = "kenya"
 
             val call: Call<GoogleNewsApiResponse> = GoogleNewsRetrofitProvider
                 .createGoogleNewsFetchingService()
@@ -41,6 +53,7 @@ class GoogleNewsListScreenViewModel : ViewModel() {
                                         _newsState.value = it
                                     }
                                 }
+                                _isSyncing.value = false
                             }
                                 Timber.tag("SUCCESS>>>>>>>>> :->").d("Successful response: $newsResponse")
                         }
@@ -52,6 +65,7 @@ class GoogleNewsListScreenViewModel : ViewModel() {
                 override fun onFailure(call: Call<GoogleNewsApiResponse>, t: Throwable) {
                     Timber.tag("FAILURE>>>>>>>>> :->").d("Request failed: ${t.message}")
                 }
+
             })
         }
     }
